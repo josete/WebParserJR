@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Funcionalidad.ConsultarInformacion;
 import Funcionalidad.DescargarWeb;
 
 /**
@@ -15,6 +16,7 @@ public class Controladores {
     
     public static void ControladorDescarga(String url, String formatoSeleccionado){
         
-        DescargarWeb.Descargar(url, formatoSeleccionado);
+        //DescargarWeb.Descargar(url, formatoSeleccionado);
+        ConsultarInformacion.ConsultarTodo();
     }
 }

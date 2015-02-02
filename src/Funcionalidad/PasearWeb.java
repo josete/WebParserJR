@@ -16,7 +16,7 @@ public class PasearWeb {
     
     public static Elements Parsear(String filtro, Document doc){
         Elements newsHeadlines = doc.select(filtro);
-        System.out.println(newsHeadlines);
+        //System.out.println(newsHeadlines);
         return newsHeadlines;
     }
 }
