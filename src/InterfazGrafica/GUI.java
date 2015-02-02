@@ -15,6 +15,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -45,7 +46,8 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
 
    JCheckBox buttonCH;
    //String[] lista={"a","abbr","acronym","address","applet","area","b","base","basefont","bdo","big","blockquote","body","br","button","caption","center","cite","code","col","colgroup","dd","del","dfn","dir","div","dl","dt","em","fieldset","font","form","frame","frameset","h1","h2","h3","h4","h5","h6","head","hr","html","i","iframe","img","input","ins","isindex","kbd","label","legend","li","link","map","menu","meta","noframes","noscript","object","ol","optgroup","option","p","param","pre","q","s","samp","script","select","small","span","strike","strong","style","sub","sup","table","tbody","td","textarea","tfoot","th","thead","title","tr","tt","u","ul","var"};
-
+   ArrayList<String> etiquetas = new ArrayList<String>(); 
+   boolean etiqueExiste = true;
    String[] lista={"a","area","b","base","body","br","button","center","cite","code","div","font","form","frame","h1","h2","h3","h4","h5","h6","head","hr","html","i","iframe","img","input","label","legend","li","link","map","menu","object","ol","option","p","script","select","small","span","strong","style","sub","table","tbody","td","textarea","title","tr","u","ul"};
 
 
@@ -155,7 +157,21 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
     @Override
     public void itemStateChanged(ItemEvent e) {
         JCheckBox source = (JCheckBox) e.getItemSelectable();
-        System.out.println(source.getName());
+        
+        //System.out.println(source.getName());
+        for(int i=0; i<etiquetas.size();i++){
+            if (etiquetas.get(i).equals(source.getName())) {
+            etiquetas.remove(i);
+            etiqueExiste=false;
+            }    
+        }
+        if(etiqueExiste)etiquetas.add(source.getName());
+        else etiqueExiste = true;
+        
+        System.out.println();
+         for(int i=0; i<etiquetas.size();i++){
+             System.out.print(etiquetas.get(i)+" ");
+            }    
+        }
     }
     
-}
