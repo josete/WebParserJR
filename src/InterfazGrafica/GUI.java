@@ -94,8 +94,6 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
         radioPanel.add(html);
         add(radioPanel, BorderLayout.NORTH);
 //--------------------------------------------------------
-
-//--------------------------------------------------------        
         JPanel chekPanel = new JPanel(new GridLayout(10, 2));
         //Register a listener for the check boxes.
         for(int x=0;x<lista.length;x++){
@@ -142,6 +140,7 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
         } else {
             seleccion = e.getActionCommand().toString();
         }
+        
 
 
     }
