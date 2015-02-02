@@ -134,7 +134,7 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
                 url_correcta = false;
             }
             if (url_correcta) {
-                Controladores.ControladorDescarga(url.getText(), seleccion);
+                Controladores.ControladorDescarga(url.getText(), seleccion,etiquetas);
             } else {
                 //Crear alertDialog
                 System.out.println("La URL: --> " + url.getText() + " <-- no es correcta");
