@@ -34,7 +34,9 @@ import javax.swing.JTextField;
 public class GUI extends JPanel implements ActionListener, ItemListener {
 
     JLabel urlname = new JLabel("Introduzca URL:");
+    JLabel classname = new JLabel("Busqueda por Clase: ");
     static JTextField url = new JTextField();
+    static JTextField c = new JTextField();
     JButton botondescargar = new JButton("Descargar");
     JButton desplegar = new JButton("Desplegar mas opciones");
     boolean url_correcta = true;
@@ -42,14 +44,12 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
     static String docString = ".doc";
     static String htmlString = ".html";
     static String seleccion = ".txt";
-    
 
-   JCheckBox buttonCH;
-   //String[] lista={"a","abbr","acronym","address","applet","area","b","base","basefont","bdo","big","blockquote","body","br","button","caption","center","cite","code","col","colgroup","dd","del","dfn","dir","div","dl","dt","em","fieldset","font","form","frame","frameset","h1","h2","h3","h4","h5","h6","head","hr","html","i","iframe","img","input","ins","isindex","kbd","label","legend","li","link","map","menu","meta","noframes","noscript","object","ol","optgroup","option","p","param","pre","q","s","samp","script","select","small","span","strike","strong","style","sub","sup","table","tbody","td","textarea","tfoot","th","thead","title","tr","tt","u","ul","var"};
-   ArrayList<String> etiquetas = new ArrayList<String>(); 
-   boolean etiqueExiste = true;
-   String[] lista={"a","area","b","base","body","br","button","center","cite","code","div","font","form","frame","h1","h2","h3","h4","h5","h6","head","hr","html","i","iframe","img","input","label","legend","li","link","map","menu","object","ol","option","p","script","select","small","span","strong","style","sub","table","tbody","td","textarea","title","tr","u","ul"};
-
+    JCheckBox buttonCH;
+    //String[] lista={"a","abbr","acronym","address","applet","area","b","base","basefont","bdo","big","blockquote","body","br","button","caption","center","cite","code","col","colgroup","dd","del","dfn","dir","div","dl","dt","em","fieldset","font","form","frame","frameset","h1","h2","h3","h4","h5","h6","head","hr","html","i","iframe","img","input","ins","isindex","kbd","label","legend","li","link","map","menu","meta","noframes","noscript","object","ol","optgroup","option","p","param","pre","q","s","samp","script","select","small","span","strike","strong","style","sub","sup","table","tbody","td","textarea","tfoot","th","thead","title","tr","tt","u","ul","var"};
+    ArrayList<String> etiquetas = new ArrayList<String>();
+    boolean etiqueExiste = true;
+    String[] lista = {"a","body","button","div","h1", "h2", "h3", "h4", "h5", "h6", "head", "html", "img", "label", "li", "ol", "p", "span", "table", "tbody", "td", "title", "tr", "u", "ul"};
 
     public GUI() {
 
@@ -94,17 +94,21 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
         radioPanel.add(html);
         add(radioPanel, BorderLayout.NORTH);
 //--------------------------------------------------------
-        JPanel chekPanel = new JPanel(new GridLayout(10, 2));
+        JPanel chekPanel = new JPanel(new GridLayout(3, 2));
         //Register a listener for the check boxes.
-        for(int x=0;x<lista.length;x++){
-        buttonCH = new JCheckBox(lista[x]);
-        buttonCH.setName(lista[x]);
-        buttonCH.setSelected(false);
-        chekPanel.add(buttonCH);
-        buttonCH.addItemListener(this);
-        add(chekPanel, BorderLayout.SOUTH);
+        for (int x = 0; x < lista.length; x++) {
+            buttonCH = new JCheckBox(lista[x]);
+            buttonCH.setName(lista[x]);
+            buttonCH.setSelected(false);
+            chekPanel.add(buttonCH);
+            buttonCH.addItemListener(this);
+            add(chekPanel, BorderLayout.SOUTH);
         }
-        }
+         JPanel clas = new JPanel(new GridLayout(1, 1));
+        clas.add(classname);
+        clas.add(c);
+        add(clas, BorderLayout.NORTH);
+    }
 
     public static void main(String args[]) {
         JFrame frame = new JFrame("Proyecto");
@@ -112,18 +116,18 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
         frame.add(new GUI());
         //frame.setUndecorated(true);
         frame.pack();
-        frame.setSize(600, 600);
+        frame.setSize(600, 230);
         frame.setLocationRelativeTo(null);
         //frame.getRootPane().setWindowDecorationStyle(JRootPane.QUESTION_DIALOG);	
         frame.setResizable(false);
         frame.setVisible(true);
-        
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         Object control = e.getSource();
-        
+
         System.out.println(e.getActionCommand().toString());
         if (control instanceof JButton) {
             try {
@@ -132,7 +136,7 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
                 url_correcta = false;
             }
             if (url_correcta) {
-                Controladores.ControladorDescarga(url.getText(), seleccion,etiquetas);
+                Controladores.ControladorDescarga(url.getText(), seleccion, etiquetas);
             } else {
                 //Crear alertDialog
                 System.out.println("La URL: --> " + url.getText() + " <-- no es correcta");
@@ -140,8 +144,6 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
         } else {
             seleccion = e.getActionCommand().toString();
         }
-        
-
 
     }
 
@@ -156,21 +158,24 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
     @Override
     public void itemStateChanged(ItemEvent e) {
         JCheckBox source = (JCheckBox) e.getItemSelectable();
-        
+
         //System.out.println(source.getName());
-        for(int i=0; i<etiquetas.size();i++){
+        for (int i = 0; i < etiquetas.size(); i++) {
             if (etiquetas.get(i).equals(source.getName())) {
-            etiquetas.remove(i);
-            etiqueExiste=false;
-            }    
+                etiquetas.remove(i);
+                etiqueExiste = false;
+            }
         }
-        if(etiqueExiste)etiquetas.add(source.getName());
-        else etiqueExiste = true;
-        
+        if (etiqueExiste) {
+            etiquetas.add(source.getName());
+        } else {
+            etiqueExiste = true;
+        }
+
         System.out.println();
-         for(int i=0; i<etiquetas.size();i++){
-             System.out.print(etiquetas.get(i)+" ");
-            }    
+        for (int i = 0; i < etiquetas.size(); i++) {
+            //HOLA
+            System.out.print(etiquetas.get(i) + " ");
         }
     }
-    
+}
