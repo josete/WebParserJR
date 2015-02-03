@@ -5,7 +5,6 @@
 package InterfazGrafica;
 
 import Controlador.Controladores;
-import Funcionalidad.DescargarWeb;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -20,11 +19,9 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
-import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.JRootPane;
 import javax.swing.JTextField;
 
 /**
@@ -136,7 +133,7 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
                 url_correcta = false;
             }
             if (url_correcta) {
-                Controladores.ControladorDescarga(url.getText(), seleccion, etiquetas);
+                Controladores.ControladorDescarga(url.getText(), seleccion, etiquetas,c.getText());
             } else {
                 //Crear alertDialog
                 System.out.println("La URL: --> " + url.getText() + " <-- no es correcta");
@@ -174,7 +171,6 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
 
         System.out.println();
         for (int i = 0; i < etiquetas.size(); i++) {
-            //HOLA
             System.out.print(etiquetas.get(i) + " ");
         }
     }

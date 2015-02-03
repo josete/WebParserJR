@@ -16,9 +16,10 @@ import java.util.ArrayList;
  */
 public class Controladores {
     
-    public static void ControladorDescarga(String url, String formatoSeleccionado,ArrayList<String> etiquetas){
+    public static void ControladorDescarga(String url, String formatoSeleccionado,
+            ArrayList<String> etiquetas,String clase){
         
-        DescargarWeb.Descargar(url, formatoSeleccionado,etiquetas);
+        DescargarWeb.Descargar(url, formatoSeleccionado,etiquetas,clase);
         //ConsultarInformacion.ConsultarTodo();
     }
 }
