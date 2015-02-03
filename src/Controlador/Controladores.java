@@ -6,6 +6,7 @@
 package Controlador;
 
 import Funcionalidad.ConsultarInformacion;
+import Funcionalidad.DescargarWeb;
 import java.util.ArrayList;
 
 
@@ -17,7 +18,7 @@ public class Controladores {
     
     public static void ControladorDescarga(String url, String formatoSeleccionado,ArrayList<String> etiquetas){
         
-        //DescargarWeb.Descargar(url, formatoSeleccionado);
-        ConsultarInformacion.ConsultarTodo();
+        DescargarWeb.Descargar(url, formatoSeleccionado,etiquetas);
+        //ConsultarInformacion.ConsultarTodo();
     }
 }

@@ -110,11 +110,11 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
         JFrame frame = new JFrame("Proyecto");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(new GUI());
-        frame.setUndecorated(true);
+        //frame.setUndecorated(true);
         frame.pack();
         frame.setSize(600, 600);
         frame.setLocationRelativeTo(null);
-        frame.getRootPane().setWindowDecorationStyle(JRootPane.QUESTION_DIALOG);	
+        //frame.getRootPane().setWindowDecorationStyle(JRootPane.QUESTION_DIALOG);	
         frame.setResizable(false);
         frame.setVisible(true);
         

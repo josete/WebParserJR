@@ -20,12 +20,15 @@ import org.jsoup.select.Elements;
  */
 public class DescargarWeb {
     
-    public static void Descargar(String url, String formatoSeleccionado){
+    public static void Descargar(String url, String formatoSeleccionado,ArrayList<String> etiquetas){
          try {
             Document doc = Jsoup.connect(url).get();
                 //boolean tiene contenido?
                 //newsHeadlines.hasText()
-                GuardarInformacion.Guardar(crearInformacion(PasearWeb.Parsear("h2", doc)),formatoSeleccionado);
+                for(String etiqueta: etiquetas){
+                    System.err.println(etiqueta);
+                    GuardarInformacion.Guardar(crearInformacion(PasearWeb.Parsear(etiqueta, doc)),formatoSeleccionado);
+                }
         } catch (IOException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
