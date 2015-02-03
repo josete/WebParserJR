@@ -36,6 +36,7 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
     static JTextField c = new JTextField();
     JButton botondescargar = new JButton("Descargar");
     JButton desplegar = new JButton("Desplegar mas opciones");
+    JButton screen = new JButton("Boton Jose");
     boolean url_correcta = true;
     static String txtString = ".txt";
     static String docString = ".doc";
@@ -46,12 +47,14 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
     //String[] lista={"a","abbr","acronym","address","applet","area","b","base","basefont","bdo","big","blockquote","body","br","button","caption","center","cite","code","col","colgroup","dd","del","dfn","dir","div","dl","dt","em","fieldset","font","form","frame","frameset","h1","h2","h3","h4","h5","h6","head","hr","html","i","iframe","img","input","ins","isindex","kbd","label","legend","li","link","map","menu","meta","noframes","noscript","object","ol","optgroup","option","p","param","pre","q","s","samp","script","select","small","span","strike","strong","style","sub","sup","table","tbody","td","textarea","tfoot","th","thead","title","tr","tt","u","ul","var"};
     ArrayList<String> etiquetas = new ArrayList<String>();
     boolean etiqueExiste = true;
-    String[] lista = {"a","body","button","div","h1", "h2", "h3", "h4", "h5", "h6", "head", "html", "img", "label", "li", "ol", "p", "span", "table", "tbody", "td", "title", "tr", "u", "ul"};
+    String[] lista = {"a", "body", "button", "div", "h1", "h2", "h3", "h4", "h5", "h6", "head", "html", "img", "label", "li", "ol", "p", "span", "table", "tbody", "td", "title", "tr", "u", "ul"};
 
     public GUI() {
 
         botondescargar.setName("Descarga");
+        screen.setName("pantalla");
         botondescargar.addActionListener(this);
+        screen.addActionListener(this);
 
         url.setPreferredSize(new Dimension(300, 20));
         //----------------------------------------------
@@ -101,10 +104,15 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
             buttonCH.addItemListener(this);
             add(chekPanel, BorderLayout.SOUTH);
         }
-         JPanel clas = new JPanel(new GridLayout(1, 1));
+        JPanel clas = new JPanel(new GridLayout(1, 1));
         clas.add(classname);
         clas.add(c);
         add(clas, BorderLayout.NORTH);
+        
+        JPanel bt = new JPanel(new GridLayout(0, 1));
+        bt.add(screen);
+        add(bt, BorderLayout.class);
+
     }
 
     public static void main(String args[]) {
@@ -133,7 +141,7 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
                 url_correcta = false;
             }
             if (url_correcta) {
-                Controladores.ControladorDescarga(url.getText(), seleccion, etiquetas,c.getText());
+                Controladores.ControladorDescarga(url.getText(), seleccion, etiquetas, c.getText());
             } else {
                 //Crear alertDialog
                 System.out.println("La URL: --> " + url.getText() + " <-- no es correcta");
