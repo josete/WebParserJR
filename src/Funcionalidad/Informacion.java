@@ -14,9 +14,11 @@ import java.io.Serializable;
 public class Informacion implements Serializable{
     
     private String informacion;
+    private String tipoInformacion;
 
-    public Informacion(String informacion) {
+    public Informacion(String informacion,String tipo) {
         this.informacion = informacion;
+        this.tipoInformacion = tipo;
     }
 
     public String getInformacion() {
@@ -26,6 +28,16 @@ public class Informacion implements Serializable{
     public void setInformacion(String informacion) {
         this.informacion = informacion;
     }
+
+    public String getTipoInformacion() {
+        return tipoInformacion;
+    }
+
+    public void setTipoInformacion(String tipoInformacion) {
+        this.tipoInformacion = tipoInformacion;
+    }
+    
+    
     
     
 }

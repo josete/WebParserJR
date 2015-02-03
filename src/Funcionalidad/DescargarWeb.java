@@ -29,9 +29,9 @@ public class DescargarWeb {
                 System.out.println(partes[0]);
                 for(String etiqueta: etiquetas){
                     if(partes[0].equals(etiqueta)){
-                        GuardarInformacion.Guardar(crearInformacion(PasearWeb.Parsear(clase, doc)),formatoSeleccionado);
+                        GuardarInformacion.Guardar(crearInformacion(PasearWeb.Parsear(clase, doc),etiqueta),formatoSeleccionado);
                     }else{
-                        GuardarInformacion.Guardar(crearInformacion(PasearWeb.Parsear(etiqueta, doc)),formatoSeleccionado);
+                        GuardarInformacion.Guardar(crearInformacion(PasearWeb.Parsear(etiqueta, doc),etiqueta),formatoSeleccionado);
                     }
                 }
         } catch (IOException ex) {
@@ -39,10 +39,10 @@ public class DescargarWeb {
         }
     }
     
-    public static ArrayList<Informacion> crearInformacion(Elements elementos){
+    public static ArrayList<Informacion> crearInformacion(Elements elementos,String tipo){
         ArrayList<Informacion> informacion = new ArrayList<>();
         for(int i=0;i<elementos.size();i++){
-            informacion.add(new Informacion(elementos.get(i).text()));
+            informacion.add(new Informacion(elementos.get(i).text(),tipo));
             System.out.println(elementos.get(i).text());
         }
         return informacion;
