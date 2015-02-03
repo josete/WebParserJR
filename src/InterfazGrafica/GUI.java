@@ -174,6 +174,7 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
 
         System.out.println();
         for (int i = 0; i < etiquetas.size(); i++) {
+            //HOLA
             System.out.print(etiquetas.get(i) + " ");
         }
     }
