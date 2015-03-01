@@ -36,7 +36,7 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
     static JTextField c = new JTextField();
     JButton botondescargar = new JButton("Descargar");
     JButton desplegar = new JButton("Desplegar mas opciones");
-    JButton screen = new JButton("Boton Jose");
+    JButton screen = new JButton("Boton ver datos");
     boolean url_correcta = true;
     static String txtString = ".txt";
     static String docString = ".doc";
@@ -135,16 +135,21 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
 
         System.out.println(e.getActionCommand().toString());
         if (control instanceof JButton) {
-            try {
-                URL existe = new URL(url.getText());
-            } catch (MalformedURLException ex) {
-                url_correcta = false;
-            }
-            if (url_correcta) {
-                Controladores.ControladorDescarga(url.getText(), seleccion, etiquetas, c.getText());
-            } else {
-                //Crear alertDialog
-                System.out.println("La URL: --> " + url.getText() + " <-- no es correcta");
+            JButton boton = (JButton) control;
+            if(boton.getText().equals("Descargar")){
+                try {
+                    URL existe = new URL(url.getText());
+                } catch (MalformedURLException ex) {
+                    url_correcta = false;
+                }
+                if (url_correcta) {
+                    Controladores.ControladorDescarga(url.getText(), seleccion, etiquetas, c.getText());
+                } else {
+                    //Crear alertDialog
+                    System.out.println("La URL: --> " + url.getText() + " <-- no es correcta");
+                }
+            }else if(boton.getText().equals("Boton ver datos")){
+                Controladores.controladorLeer();
             }
         } else {
             seleccion = e.getActionCommand().toString();

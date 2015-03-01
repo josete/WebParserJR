@@ -19,31 +19,43 @@ import org.jsoup.select.Elements;
  * @author Familia
  */
 public class DescargarWeb {
-    
-    public static void Descargar(String url, String formatoSeleccionado,ArrayList<String> etiquetas,String clase){
-         try {
+
+    public static void Descargar(String url, String formatoSeleccionado, ArrayList<String> etiquetas, String clase) {
+        try {
             Document doc = Jsoup.connect(url).get();
-                //boolean tiene contenido?
-                //newsHeadlines.hasText()
+            BaseDatosOdb db = new BaseDatosOdb("Informacion", ".");
+            //boolean tiene contenido?
+            //newsHeadlines.hasText()
             String[] partes = clase.split("\\.");
-                System.out.println(partes[0]);
-                for(String etiqueta: etiquetas){
-                    if(partes[0].equals(etiqueta)){
-                        GuardarInformacion.Guardar(crearInformacion(PasearWeb.Parsear(clase, doc),etiqueta),formatoSeleccionado);
-                    }else{
-                        GuardarInformacion.Guardar(crearInformacion(PasearWeb.Parsear(etiqueta, doc),etiqueta),formatoSeleccionado);
-                    }
+            System.out.println(partes[0]);
+            ArrayList<Elements> elementos = new ArrayList<>();
+            for (String etiqueta : etiquetas) {
+                if (partes[0].equals(etiqueta)) {
+                    elementos.add(PasearWeb.Parsear(clase, doc));
+                    //GuardarInformacion.Guardar(crearInformacion(PasearWeb.Parsear(clase, doc),etiqueta),formatoSeleccionado);
+                } else {
+                    elementos.add(PasearWeb.Parsear(etiqueta, doc));
+                    //GuardarInformacion.Guardar(crearInformacion(PasearWeb.Parsear(etiqueta, doc),etiqueta),formatoSeleccionado);
                 }
+            }
+            //GuardarInformacion.Guardar(crearInformacion(elementos, etiquetas), formatoSeleccionado);
+            //if(elementos.size() == etiquetas.size()){
+                db.insertarEnBaseDeDatos(crearInformacion(elementos, etiquetas));
+            
         } catch (IOException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public static ArrayList<Informacion> crearInformacion(Elements elementos,String tipo){
+
+    public static ArrayList<Informacion> crearInformacion(ArrayList<Elements> elementos, ArrayList<String> etiquetas) {
         ArrayList<Informacion> informacion = new ArrayList<>();
-        for(int i=0;i<elementos.size();i++){
-            informacion.add(new Informacion(elementos.get(i).text(),tipo));
-            System.out.println(elementos.get(i).text());
+        for (Elements e : elementos) {
+            for (String s : etiquetas) {
+                System.out.println("Tamaño de los elemetos: "+e.size());
+                for (int i = 0; i < e.size(); i++) {
+                    informacion.add(new Informacion(e.get(i).text(), s));
+                }
+            }
         }
         return informacion;
     }

@@ -2,15 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/WebParserJR/src/Funcionalidad/Informacion.java</file>
-            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/WebParserJR/src/Funcionalidad/GuardarInformacion.java</file>
-            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/WebParserJR/src/Funcionalidad/PasearWeb.java</file>
-            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/WebParserJR/src/InterfazGrafica/GUI.java</file>
-            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/WebParserJR/src/Funcionalidad/DescargarWeb.java</file>
-            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/WebParserJR/src/Funcionalidad/OperacionesSerializado.java</file>
-            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/WebParserJR/src/Funcionalidad/ConsultarInformacion.java</file>
-            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/WebParserJR/src/Controlador/Controladores.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

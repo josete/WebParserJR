@@ -6,6 +6,7 @@
 package Funcionalidad;
 
 import java.io.File;
+import java.util.ArrayList;
 import org.neodatis.odb.ODB;
 import org.neodatis.odb.ODBFactory;
 
@@ -23,15 +24,16 @@ public class BaseDatosOdb {
     public BaseDatosOdb(String nombre, String ruta) {
         nombreBase = nombre;
         this.ruta = ruta;
-        odb = ODBFactory.open(nombreBase + ".odb");
+        //odb = ODBFactory.open(nombreBase + ".odb");
         XLS = new File(this.ruta);
-
     }
 
-    public static void insertarEnBaseDeDatos() {
-        //odb = ODBFactory.open(nombreBase + ".odb");
-        //  odb.store();
-        //   odb.close();
+    public void insertarEnBaseDeDatos(ArrayList<Informacion> info) {
+        odb = ODBFactory.open(nombreBase + ".odb");
+        for(Informacion i: info){
+            odb.store(i);
+        }
+        odb.close();
     }
 
 }

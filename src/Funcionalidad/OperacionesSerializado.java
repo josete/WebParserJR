@@ -49,7 +49,7 @@ public class OperacionesSerializado {
             try {
                 while (true) {
                     i = (Informacion) in.readObject();
-                    System.out.println("-->" + i.getInformacion());
+                    System.out.println("-->" + i.getInformacion() + " "+i.getTipoInformacion());
                 }
             } catch (EOFException ef) {
 

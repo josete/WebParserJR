@@ -22,4 +22,8 @@ public class Controladores {
         DescargarWeb.Descargar(url, formatoSeleccionado,etiquetas,clase);
         //ConsultarInformacion.ConsultarTodo();
     }
+    
+    public static void controladorLeer(){
+        ConsultarInformacion.ConsultarTodo();
+    }
 }

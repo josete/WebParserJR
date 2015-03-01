@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>510</x>
+      <y>170</y>
+      <w>120</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>CLI
+--
+InterfazConsola
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>530</x>
+      <y>70</y>
+      <w>100</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>GUI
+--
+InterfazGrafica
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>310</x>
+      <y>80</y>
+      <w>100</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Controladores
+--
+Controladores
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>30</x>
+      <y>70</y>
+      <w>160</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Funcionalidad
+--
+BajarWeb
+ParsearWeb
+GuardarDatos
+ConsultarDatos
+GenerarExcell
+Informacion
+OperacionesSerializado
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>180</x>
+      <y>100</y>
+      <w>150</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;import&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>90</y>
+      <w>150</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;import&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>380</x>
+      <y>130</y>
+      <w>150</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;import&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0;130.0;80.0</additional_attributes>
+  </element>
+</diagram>
