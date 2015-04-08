@@ -9,6 +9,9 @@ import java.io.File;
 import java.util.ArrayList;
 import org.neodatis.odb.ODB;
 import org.neodatis.odb.ODBFactory;
+import org.neodatis.odb.Objects;
+import org.neodatis.odb.core.query.IQuery;
+import org.neodatis.odb.impl.core.query.criteria.CriteriaQuery;
 
 /**
  *
@@ -17,13 +20,13 @@ import org.neodatis.odb.ODBFactory;
 public class BaseDatosOdb {
 
     private static ODB odb;
-    private static String nombreBase = null;
-    private String ruta;
-    private static File XLS;
+    private static String nombreBase = "Informacion";
+    private String ruta = System.getProperty("user.home") + "/Desktop/Informacion.xls";
+    private File XLS;
 
     public BaseDatosOdb(String nombre, String ruta) {
-        nombreBase = nombre;
-        this.ruta = ruta;
+        //nombreBase = nombre;
+        //this.ruta = ruta;
         //odb = ODBFactory.open(nombreBase + ".odb");
         XLS = new File(this.ruta);
     }
@@ -34,6 +37,17 @@ public class BaseDatosOdb {
             odb.store(i);
         }
         odb.close();
+    }
+    
+    public void leerBaseDeDatos(){
+        odb = ODBFactory.open(nombreBase + ".odb");
+        IQuery query = new CriteriaQuery(Informacion.class);
+        Objects<Informacion> info = odb.getObjects(query);
+        GenerarExcel.generarHojaDeCalculo(info, XLS);
+        int i = 1;
+            while (info.hasNext()) {
+                System.out.println((i++) + "\t: " + info.next().getUrl());
+            } 
     }
 
 }

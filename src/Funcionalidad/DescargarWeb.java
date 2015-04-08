@@ -40,20 +40,20 @@ public class DescargarWeb {
             }
             //GuardarInformacion.Guardar(crearInformacion(elementos, etiquetas), formatoSeleccionado);
             //if(elementos.size() == etiquetas.size()){
-                db.insertarEnBaseDeDatos(crearInformacion(elementos, etiquetas));
+                db.insertarEnBaseDeDatos(crearInformacion(elementos, etiquetas,url));
             
         } catch (IOException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public static ArrayList<Informacion> crearInformacion(ArrayList<Elements> elementos, ArrayList<String> etiquetas) {
+    public static ArrayList<Informacion> crearInformacion(ArrayList<Elements> elementos, ArrayList<String> etiquetas,String url) {
         ArrayList<Informacion> informacion = new ArrayList<>();
         for (Elements e : elementos) {
             for (String s : etiquetas) {
                 System.out.println("Tamaño de los elemetos: "+e.size());
                 for (int i = 0; i < e.size(); i++) {
-                    informacion.add(new Informacion(e.get(i).text(), s));
+                    informacion.add(new Informacion(e.get(i).text(), s,url));
                 }
             }
         }

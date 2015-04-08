@@ -15,10 +15,12 @@ public class Informacion implements Serializable{
     
     private String informacion;
     private String tipoInformacion;
+    private String url;
 
-    public Informacion(String informacion,String tipo) {
+    public Informacion(String informacion,String tipo,String url) {
         this.informacion = informacion;
         this.tipoInformacion = tipo;
+        this.url = url;
     }
 
     public String getInformacion() {
@@ -36,6 +38,21 @@ public class Informacion implements Serializable{
     public void setTipoInformacion(String tipoInformacion) {
         this.tipoInformacion = tipoInformacion;
     }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+    
+    public String[] getDatosCompuesto(){
+        String[] datos = {informacion,tipoInformacion,url};
+        return datos;
+    }
+    
+    
     
     
     

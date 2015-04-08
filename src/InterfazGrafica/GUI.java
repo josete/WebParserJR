@@ -36,7 +36,7 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
     static JTextField c = new JTextField();
     JButton botondescargar = new JButton("Descargar");
     JButton desplegar = new JButton("Desplegar mas opciones");
-    JButton screen = new JButton("Boton ver datos");
+    JButton screen = new JButton("Crear hoja de calculo");
     boolean url_correcta = true;
     static String txtString = ".txt";
     static String docString = ".doc";
@@ -148,7 +148,7 @@ public class GUI extends JPanel implements ActionListener, ItemListener {
                     //Crear alertDialog
                     System.out.println("La URL: --> " + url.getText() + " <-- no es correcta");
                 }
-            }else if(boton.getText().equals("Boton ver datos")){
+            }else if(boton.getText().equals("Crear hoja de calculo")){
                 Controladores.controladorLeer();
             }
         } else {

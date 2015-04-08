@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Funcionalidad.BaseDatosOdb;
 import Funcionalidad.ConsultarInformacion;
 import Funcionalidad.DescargarWeb;
 import java.util.ArrayList;
@@ -24,6 +25,8 @@ public class Controladores {
     }
     
     public static void controladorLeer(){
-        ConsultarInformacion.ConsultarTodo();
+        BaseDatosOdb bd = new BaseDatosOdb("Informacion", ".");
+        bd.leerBaseDeDatos();
+        //ConsultarInformacion.ConsultarTodo();
     }
 }
