@@ -63,6 +63,8 @@ public class BaseDatosOdb {
         Objects<Informacion> info = odb.getObjects(query);
         //Generar el excel
         GenerarExcel.generarHojaDeCalculo(info, XLS);
+        //Se cierra la base de datos
+        odb.close();
         int i = 1;
             while (info.hasNext()) {
                 System.out.println((i++) + "\t: " + info.next().getUrl());
