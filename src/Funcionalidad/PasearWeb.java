@@ -14,6 +14,12 @@ import org.jsoup.select.Elements;
  */
 public class PasearWeb {
     
+    /**
+     * Se encarga de obtener los elmentos de la pagina
+     * @param filtro Que es lo que se quiere descargar
+     * @param doc Pagina de la que se quiere obtener la informacion
+     * @return Devuelve los elementos de la pagina
+     */
     public static Elements Parsear(String filtro, Document doc){
         Elements newsHeadlines = doc.select(filtro);
         //System.out.println(newsHeadlines);

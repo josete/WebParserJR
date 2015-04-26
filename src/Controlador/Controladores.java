@@ -17,15 +17,28 @@ import java.util.ArrayList;
  */
 public class Controladores {
     
-    public static void ControladorDescarga(String url, String formatoSeleccionado,
+    /**
+     * 
+     * @param url Es la url de la pagina que vamos a descargar
+     * @param etiquetas Son las etiquetas html que queremos obterner ej:h2
+     * @param clase Son las clases css especificas que se quieren descargar
+     * 
+     * Es el controlador que se encarga de conectar la funcionalidad de
+     * descarga con la interfaz grafica
+     */
+    public static void ControladorDescarga(String url,
             ArrayList<String> etiquetas,String clase){
         
-        DescargarWeb.Descargar(url, formatoSeleccionado,etiquetas,clase);
+        DescargarWeb.Descargar(url,etiquetas,clase);
         //ConsultarInformacion.ConsultarTodo();
     }
     
+    /**
+     * Es el controlador que se encarga de conectar la funcionalidad de crear
+     * la hoja de calculo con la interfaz
+     */
     public static void controladorLeer(){
-        BaseDatosOdb bd = new BaseDatosOdb("Informacion", ".");
+        BaseDatosOdb bd = new BaseDatosOdb(".");
         bd.leerBaseDeDatos();
         //ConsultarInformacion.ConsultarTodo();
     }

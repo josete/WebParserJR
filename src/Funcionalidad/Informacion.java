@@ -13,10 +13,19 @@ import java.io.Serializable;
  */
 public class Informacion implements Serializable{
     
+    //Informacion que se va a guardar
     private String informacion;
+    //Tipo de informacion
     private String tipoInformacion;
+    //Url de la pagina
     private String url;
 
+    /**
+     * Constructor de la clase
+     * @param informacion Contenido que se va a guardar
+     * @param tipo tipo del contenido
+     * @param url direccion de la pagina
+     */
     public Informacion(String informacion,String tipo,String url) {
         this.informacion = informacion;
         this.tipoInformacion = tipo;
@@ -47,6 +56,11 @@ public class Informacion implements Serializable{
         this.url = url;
     }
     
+    /**
+     * SE encarga de componer los datos
+     * @return devuelve un array con los datos para poder ser escritos en el
+     * documento excel
+     */
     public String[] getDatosCompuesto(){
         String[] datos = {informacion,tipoInformacion,url};
         return datos;

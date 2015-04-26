@@ -25,12 +25,19 @@ import org.neodatis.odb.Objects;
  */
 public class GenerarExcel {
     
+    /**
+     * Metodo que crea el archivo excel
+     * @param informacion Informacion que se va a escribir
+     * @param XLS Ficgero excel
+     */
     public static void generarHojaDeCalculo(Objects<Informacion> informacion,File XLS){
         
+        //Si existe el documento lo borra
         try {
             if (XLS.exists()) {
                 XLS.delete();
             }
+            //Se crea el archivo
             XLS.createNewFile();
             
             //Crea libro en la hoja de excel
